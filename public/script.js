@@ -33,3 +33,15 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
   localStorage.setItem("nome", inputName.value);
 });
+
+let aside = document.querySelector("aside");
+
+let i = 1;
+let intervalId = setInterval(() => {
+  let div = document.createElement("div");
+  div.innerText = i;
+  div.className = "animated-number";
+  aside.appendChild(div);
+  sessionStorage.setItem("secondo", i);
+  i++;
+}, 1000); // 1000 millisecondi = 1 secondo
