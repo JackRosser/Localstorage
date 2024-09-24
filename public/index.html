@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Esercizio</title>
     <link rel="stylesheet" href="./style.css" />
+    <style>
+      @keyframes numbersAppear {
+        from {
+          left: 0;
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        to {
+          left: 100%;
+          opacity: 0;
+        }
+      }
+
+      .animated-number {
+        position: absolute;
+        top: 0.5rem;
+        left: 0;
+        animation: numbersAppear 3s forwards;
+      }
+    </style>
   </head>
   <body>
     <header></header>
@@ -13,6 +37,9 @@
       <form class="grid grid-cols-2 w-3/4 lg:w-1/2 m-auto my-10 border p-3 rounded-lg shadow-sm cursor-pointer">
         <input type="text" id="name" class="col-span-2 m-auto border w-1/2 placeholder:italic text-center py-2" placeholder="insert your name here..." />
       </form>
+      <aside class="bg-blue-500 p-5 text-white relative">
+        <div class="animated-number">1</div>
+      </aside>
     </main>
     <footer></footer>
     <script src="./script.js"></script>
