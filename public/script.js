@@ -36,12 +36,21 @@ form.addEventListener("submit", function (e) {
 
 let aside = document.querySelector("aside");
 
-let i = 1;
-let intervalId = setInterval(() => {
+let i;
+if (sessionStorage.getItem("tempo")) {
+  i = parseInt(sessionStorage.getItem("tempo"));
+} else {
+  i = 1;
+}
+let aumento = setInterval(() => {
+  sessionStorage.setItem("tempo", i);
+  i++;
+}, 1000);
+
+let generator = setInterval(() => {
+  let secondo = sessionStorage.getItem("tempo");
   let div = document.createElement("div");
-  div.innerText = i;
+  div.innerText = secondo;
   div.className = "animated-number";
   aside.appendChild(div);
-  sessionStorage.setItem("secondo", i);
-  i++;
-}, 1000); // 1000 millisecondi = 1 secondo
+}, 1000);
